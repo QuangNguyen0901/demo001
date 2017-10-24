@@ -45,4 +45,13 @@ class UsersController extends AppController
         $this->set('user',$user);
 //        pr($user->toArray());die;
     }
+
+    public function userDelete($user_id)
+    {
+        $userTable = TableRegistry::get('Users'); // = $this->>users (cakephp2)
+        $u_id = $this->Users->get($user_id);
+        if($this->Users->delete($u_id)){
+            $this->redirect('users/users-list');
+        }
+    }
 }

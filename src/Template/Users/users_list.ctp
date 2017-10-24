@@ -14,13 +14,23 @@
         ?>
 
         <div class="1user table-bordered" style="float:left; width: 150px; margin:5px;">
-            <h4> User</h4>
+            <h4> User ID : <?php echo $user->user_id ?></h4>
             <p><?php echo $this->Html->link(
                 $user->username,
-                ['controller' => 'Users', 'action' => 'userDetail', $user->user_id]
+                ['controller' => 'Users', 'action' => 'userDetail', $user->user_id]  //
                 );?></p>
             <h4> Sex</h4>
             <p> <?php echo $user->sex ?></p>
+            <?php echo $this->Html->link(
+                'Delete',
+                ['controller' => 'Users', 'action' => 'userDelete', $user->user_id],['class'=>'btn-info btn-sm','confirm' => 'Xóa user?']
+
+            );
+            ?>
+
+            <?= $this->Form->postButton('Delete Record', ['controller' => 'Users', 'action' => 'userDelete', $user->user_id],['class'=>'btn-danger btn-sm']) ?>
+
+
         </div>
         <?php
     }

@@ -35,4 +35,9 @@ class UsersTable extends Table
         $user = $this->find()->where(['user_id'=>$user_id])->first();
         return $user;
     }
+
+    public function delete_user_by_id($user_id)
+    {
+
+    }
 }
