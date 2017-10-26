@@ -10,25 +10,37 @@
 <div class="table-bordered" style="align-content: center">
 
     <?php
-    foreach ($users as $user){
+    foreach ($users as $user) {
         ?>
 
         <div class="1user table-bordered" style="float:left; width: 150px; margin:5px;">
             <h4> User ID : <?php echo $user->user_id ?></h4>
             <p><?php echo $this->Html->link(
-                $user->username,
-                ['controller' => 'Users', 'action' => 'userDetail', $user->user_id]  //
-                );?></p>
+                    $user->username,
+                    ['controller' => 'Users', 'action' => 'userDetail', $user->user_id]  //
+                ); ?></p>
             <h4> Sex</h4>
             <p> <?php echo $user->sex ?></p>
+
+
+            <!--            <?php //echo $this->Form->postButton('Delete Record',
+            // ['controller' => 'Users', 'action' => 'userDelete', $user->user_id],
+            //['class'=>'btn-danger btn-sm'])
+            ?>-->
+
             <?php echo $this->Html->link(
                 'Delete',
-                ['controller' => 'Users', 'action' => 'userDelete', $user->user_id],['class'=>'btn-info btn-sm','confirm' => 'Xóa user?']
+                ['controller' => 'Users', 'action' => 'userDelete', $user->user_id], ['class' => 'btn-info btn-sm', 'confirm' => 'Xóa user?']
 
             );
             ?>
 
-            <?= $this->Form->postButton('Delete Record', ['controller' => 'Users', 'action' => 'userDelete', $user->user_id],['class'=>'btn-danger btn-sm']) ?>
+            <?php echo $this->Html->link(
+                'Edit',
+                ['controller' => 'Users', 'action' => 'userEdit', $user->user_id,1],
+                ['class' => 'btn-info btn-sm']
+            );
+            ?>
 
 
         </div>

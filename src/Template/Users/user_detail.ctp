@@ -8,18 +8,20 @@
 <p> <?php echo $user->username ?></p>
 <h4>Gioi tinh</h4>
 <p><?php echo $user->sex ?></p>
-<?= $this->Form->postButton('Delete Record', ['controller' => 'Users', 'action' => 'userDelete', $user->user_id],
-    ['class' => 'btn-danger btn-sm', 'onclick' => 'check_confirm()']) ?>
+<?php //echo $this->Form->postButton('Delete Record', ['controller' => 'Users', 'action' => 'userDelete', $user->user_id],
+//    ['class' => 'btn-danger btn-sm']) ?>
 
 <?php echo $this->Html->link(
     'Delete',
-    ['controller' => 'Users', 'action' => 'userDelete', $user->user_id],['class'=>'btn-info btn-sm','confirm' => 'Xóa user?']
-
+    ['controller' => 'Users', 'action' => 'userDelete', $user->user_id],
+    ['class' => 'btn-info btn-sm', 'confirm' => 'Xóa user?']
 );
 ?>
-<script>
-    function check_confirm() {
-        confirm("Are you sure?");
-    }
-</script>
+<?php echo $this->Html->link(
+    'Edit',
+    ['controller' => 'Users', 'action' => 'userEdit', $user->user_id,2],
+    ['class' => 'btn-info btn-sm']
+);
+?>
+
 </body>
