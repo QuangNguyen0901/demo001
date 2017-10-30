@@ -58,10 +58,11 @@ class UsersController extends AppController
         }
     }
 
-    public function userEdit($user_id, $page)
+    public function userEdit($user_id)
     {
-//        $userTable = TableRegistry::get('Users');
-//        $user = $userTable->get($user_id);
+        $userTable = TableRegistry::get('Users');
+        $user = $userTable->get($user_id);
+        $this->set('user', $user); ///????
 //        $user->username = "ahehehehe";
 //        $userTable->save($user);
 //        if($page ==1) {
@@ -70,9 +71,12 @@ class UsersController extends AppController
 //            return $this->redirect(['controller' => 'users', 'action' => 'userDetail', $user->user_id]);
 //        }
         if ($this->request->is('post')) {
-            if ($this->Users->save($this->data)) {
-                $this->Session->setFlash('User successfully saved.');
-                $this->redirect(array('action' => 'index'));
+            $this->request->data['User']['user_id'] = $user_id;
+            $user = $userTable->patchEntity($user, $this->request->data['User']);
+//            pr($user);die;
+            if ($userTable->save($user)) {
+                $this->Flash->success('User successfully saved.');
+                $this->redirect(array('action' => 'usersList'));
             }
         } else {
             $this->data = $this->Users->findById($user_id);

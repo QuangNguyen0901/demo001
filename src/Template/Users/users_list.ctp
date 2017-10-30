@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Danh sach user </title>
-    <link rel="stylesheet" href="/webroot/css/bootstrap-3.3.7-dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../webroot/css/bootstrap-3.3.7-dist/css/bootstrap.css"/>
 </head>
 <body>
 <h3>Users</h3>
@@ -37,7 +37,7 @@
 
             <?php echo $this->Html->link(
                 'Edit',
-                ['controller' => 'Users', 'action' => 'userEdit', $user->user_id,1],
+                ['controller' => 'Users', 'action' => 'userEdit', $user->user_id],
                 ['class' => 'btn-info btn-sm']
             );
             ?>
