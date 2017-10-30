@@ -9,8 +9,8 @@ use Cake\Validation\Validator;
 
 class UsersTable extends Table
 {
-    var $user_name;
-    var $user_sex;
+//    var $user_name;
+//    var $user_sex;
     /**
      * Initialize method
      *
@@ -26,8 +26,8 @@ class UsersTable extends Table
     }
     public function read_all_users()
     {
-        $uers = $this->find('all');
-        return $uers;
+        $users = $this->find('all')->order(['user_id'=> 'ASC']); //order(['user_id'=> 'ASC']); sap xep theo thu tu tang dan
+        return $users;
     }
     public function read_detail_user($user_id)
     {
