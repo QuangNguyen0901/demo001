@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Danh sach user </title>
-    <link rel="stylesheet" href="../webroot/css/bootstrap-3.3.7-dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="http://project-demo001.com/css/bootstrap-3.3.7-dist/css/bootstrap.css"/>
 </head>
 <body>
 <h3>Users</h3>
