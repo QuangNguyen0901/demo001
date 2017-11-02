@@ -36,23 +36,18 @@
                 'Delete',
                 ['controller' => 'Users', 'action' => 'userDelete', $user->user_id],
                 ['class' => 'btn-danger btn-sm', 'confirm' => 'Xóa user?']
-
             );
             ?>
-
             <?php echo $this->Html->link(
                 'Edit',
                 ['controller' => 'Users', 'action' => 'userEdit', $user->user_id, 1],
                 ['class' => 'btn-info btn-sm']
             );
             ?>
-
-
         </div>
         <?php
     }
     ?>
-
 </div>
 </body>
 </html>

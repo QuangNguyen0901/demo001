@@ -38,10 +38,12 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form role="form">
+                            <?php
+                            echo $this->Form->create('User'); ?>
+<!--                            <form role="form">-->
                                 <div class="form-group">
                                     <?php
-                                    echo $this->Form->create('User'); ?>
+                                    //echo $this->Form->create('User'); ?>
                                     <div class="form-group">
                                         <?php echo $this->Form->input('User.username',
                                             ['class' => 'form-control', 'label' => 'User Name', 'value' => $user->username]);
@@ -64,13 +66,14 @@
                                         )
                                         ?>
                                     </label>
+                                    ?>
                                 </div>
                                 <?php echo $this->Form->submit('Submit',
-                                    ['class' => 'btn-info btn-sm', 'style' => 'border:none;border-radius:3px;']
-                                ); ?>
+                                    array('after' => $this->Html->link('Cancel', array('action' => 'userEdit')))
+                                );?>
                                 <?php echo $this->Form->end();
                                 ?>
-                            </form>
+<!--                            </form>-->
                         </div>
                     </div>
                 </div>
