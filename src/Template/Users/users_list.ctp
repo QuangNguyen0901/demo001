@@ -13,8 +13,13 @@
     ['class' => 'btn-success btn-sm']
 );
 ?>
+<?php echo $this->Html->link(
+    'sample',
+    ['controller' => 'Users', 'action' => 'userEdit2'],
+    ['class' => 'btn-info btn-sm']
+);
+?>
 <div class="table-bordered" style="align-content: center">
-
     <?php
     foreach ($users as $user) {
         ?>

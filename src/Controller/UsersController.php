@@ -102,4 +102,10 @@ class UsersController extends AppController
             }
         }
     }
+
+    public function userEdit2()
+    {
+        $this->layout = false;
+        //return $this->redirect('users/user_edit2');
+    }
 }
