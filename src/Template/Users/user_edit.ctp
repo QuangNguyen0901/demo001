@@ -61,15 +61,16 @@
                                                 'value' => $user->sex,
                                                 'type' => 'radio',
                                                 'class' => 'radio-inline',
+
                                                 'label' => false
                                             ]
                                         )
                                         ?>
                                     </label>
-                                    ?>
+
                                 </div>
                                 <?php echo $this->Form->submit('Submit',
-                                    array('after' => $this->Html->link('Cancel', array('action' => 'userEdit')))
+                                    array('class'=> 'btn btn-primary btn-sm ','after' => $this->Html->link('Cancel', array('action' => 'userEdit', $user->user_id, 2)))
                                 );?>
                                 <?php echo $this->Form->end();
                                 ?>
