@@ -19,6 +19,12 @@
     ['class' => 'btn-info btn-sm']
 );
 ?>
+<?php echo $this->Html->link(
+    'Register',
+    ['controller' => 'Users', 'action' => 'userRegister'],
+    ['class' => 'btn-info btn-sm']
+);
+?>
 <div class="table-bordered" style="align-content: center">
     <?php
     foreach ($users as $user) {

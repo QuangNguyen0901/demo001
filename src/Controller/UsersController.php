@@ -108,4 +108,10 @@ class UsersController extends AppController
         $this->layout = false;
         //return $this->redirect('users/user_edit2');
     }
+
+    public function userRegister()
+    {
+        $this->layout = false;
+        //return $this->redirect('users/user_edit2');
+    }
 }

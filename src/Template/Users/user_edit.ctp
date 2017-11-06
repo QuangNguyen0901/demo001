@@ -37,7 +37,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
                             <?php
                             echo $this->Form->create('User'); ?>
 <!--                            <form role="form">-->
