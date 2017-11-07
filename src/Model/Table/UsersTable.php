@@ -36,8 +36,22 @@ class UsersTable extends Table
         return $user;
     }
 
-    public function delete_user_by_id($user_id)
+    public function validationDefault(Validator $validator)
     {
+        $validator
+            ->requirePresence('username')
+            ->notEmpty('username','Please input username')
+            ->add('username','unique', ['rule' => 'validateUnique', 'provider' => 'username']);
+        $validator
+            ->requirePresence('pass')
+            ->notEmpty('pass','Please input password')
+            ->add('pass',[
+                'length'=>[
+                    'rule'=>['minLength',4],
+                    'message'=>'min 4 characters'
+                ]
+            ]);
+        return $validator;
 
     }
 }
