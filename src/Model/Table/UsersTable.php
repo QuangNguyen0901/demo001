@@ -39,11 +39,11 @@ class UsersTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->requirePresence('username')
+            ->requirePresence('username', 'create')
             ->notEmpty('username','Please input username')
             ->add('username','unique', ['rule' => 'validateUnique', 'provider' => 'username']);
         $validator
-            ->requirePresence('pass')
+            ->requirePresence('pass', 'create')
             ->notEmpty('pass','Please input password')
             ->add('pass',[
                 'length'=>[

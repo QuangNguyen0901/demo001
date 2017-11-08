@@ -18,22 +18,22 @@
         </div>
         <div class="panel-body">
             <?php
-            echo $this->Form->create('User');?>
+            echo $this->Form->create($user);?>
             <div class="form-group">
                 <label>Username</label>
-                <?php echo $this->Form->input('User.username',['label'=>false,'class'=>'form-control','placeholder'=>'Username']); ?>
+                <?php echo $this->Form->input('User.username',['required'=> false,'label'=>false,'class'=>'form-control','placeholder'=>'Username']); ?>
 <!--                <p class="help-block">Please input username</p>-->
             </div>
             <div class="form-group">
                 <label>Password</label>
                 <?php echo $this->Form->input('User.pass',
-                    ['label'=>false,'class'=>'form-control','type'=>'password','placeholder'=>'Password']);?>
+                    ['required'=> false,'label'=>false,'class'=>'form-control','type'=>'password','placeholder'=>'Password']);?>
 <!--                <p class="help-block">Please input your password</p>-->
             </div>
             <div class="form-group">
                 <label>Password Confirm</label>
                 <?php echo $this->Form->input('User.pass_confirm',
-                    ['label'=>false,'class'=>'form-control','type'=>'password','placeholder'=>'Password Confirm']);?>
+                    ['required'=> false,'label'=>false,'class'=>'form-control','type'=>'password','placeholder'=>'Password Confirm']);?>
 <!--                <p class="help-block">Please confirm your password</p>-->
             </div>
             <?php echo $this->Form->submit('Submit',
