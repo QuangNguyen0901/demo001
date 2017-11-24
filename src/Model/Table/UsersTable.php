@@ -24,15 +24,17 @@ class UsersTable extends Table
         $this->setTable('user');
         $this->setPrimaryKey('user_id');
     }
+
     public function read_all_users()
     {
-        $users = $this->find('all')->order(['user_id'=> 'ASC']); //order(['user_id'=> 'ASC']); sap xep theo thu tu tang dan
+        $users = $this->find('all')->order(['user_id' => 'ASC']); //order(['user_id'=> 'ASC']); sap xep theo thu tu tang dan
         return $users;
     }
+
     public function read_detail_user($user_id)
     {
 //        $user = $this->find()->where(array('id'=>$id))->first();
-        $user = $this->find()->where(['user_id'=>$user_id])->first();
+        $user = $this->find()->where(['user_id' => $user_id])->first();
         return $user;
     }
 
@@ -40,15 +42,21 @@ class UsersTable extends Table
     {
         $validator
             ->requirePresence('username', 'create')
-            ->notEmpty('username','Please input username')
-            ->add('username','unique', ['rule' => 'validateUnique', 'provider' => 'username']);
+            ->notEmpty('username', 'Please input username')
+            ->add('username', [
+                'unique' => [
+                    'rule' => 'validateUnique',
+                    'provider' => 'table',
+                    'message' => 'Not unique'
+                ]
+            ]);
         $validator
             ->requirePresence('pass', 'create')
-            ->notEmpty('pass','Please input password')
-            ->add('pass',[
-                'length'=>[
-                    'rule'=>['minLength',4],
-                    'message'=>'min 4 characters'
+            ->notEmpty('pass', 'Please input password')
+            ->add('pass', [
+                'length' => [
+                    'rule' => ['minLength', 4],
+                    'message' => 'min 4 characters'
                 ]
             ]);
         return $validator;
