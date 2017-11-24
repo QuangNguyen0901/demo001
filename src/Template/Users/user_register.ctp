@@ -40,7 +40,7 @@
             array('after' => $this->Html->link('Cancel', array('action' => 'userRegister')))
             );
             echo $this->Form->end();
-            pr($user);
+//            pr($user);
             ?>
         </div>
     </div>
