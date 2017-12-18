@@ -16,6 +16,7 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
+use Cake\Auth\AbstractPasswordHasher;
 
 /**
  * Application Controller
@@ -43,6 +44,37 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+        //login
+        $this->loadComponent('Auth', [
+            'loginAction' => [
+                'controller' => 'Users',
+                'action' => 'user_login'
+            ],
+            'authError' => 'Did you really think you are allowed to see that?',
+            'authenticate' => [
+                'Form' => [
+                    'fields' => ['username' => 'username','password' => 'pass']
+                ],
+                'passwordHasher' => [
+                    'className' => 'Abstract',
+                ]
+            ],
+            'storage' => 'Session'
+        ]);
+
+        $this->loadComponent('Auth', [
+            'loginRedirect' => [
+                'controller' => 'Users',
+                'action' => 'usersList'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'Users',
+                'action' => 'userLogin',
+                'home'
+            ]
+        ]);
+        //end login function
+
 
         /*
          * Enable the following components for recommended CakePHP security settings.
