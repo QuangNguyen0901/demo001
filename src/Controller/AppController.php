@@ -16,7 +16,6 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
-use Cake\Auth\AbstractPasswordHasher;
 
 /**
  * Application Controller
@@ -53,11 +52,12 @@ class AppController extends Controller
             'authError' => 'Did you really think you are allowed to see that?',
             'authenticate' => [
                 'Form' => [
-                    'fields' => ['username' => 'username','password' => 'pass']
-                ],
-                'passwordHasher' => [
-                    'className' => 'Abstract',
+                    'fields' => ['username' => 'username','password' => 'pass'],
+                    'passwordHasher' => [
+                        'className' => 'Legacy',
+                    ]
                 ]
+
             ],
             'storage' => 'Session'
         ]);
