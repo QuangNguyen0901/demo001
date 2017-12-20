@@ -25,6 +25,12 @@
     ['class' => 'btn-info btn-sm']
 );
 ?>
+<?php echo $this->Html->link(
+    'Logout',
+    ['controller' => 'Users', 'action' => 'logout'],
+    ['class' => 'btn-info btn-sm']
+);
+?>
 <div class="table-bordered" style="align-content: center">
     <?php
     foreach ($users as $user) {
