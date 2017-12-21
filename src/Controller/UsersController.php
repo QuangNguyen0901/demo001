@@ -93,15 +93,15 @@ class UsersController extends AppController
 
     public function userAdd()
     {
-//        $userTable = TableRegistry::get('Users');     cung trong controller nen khong can dong lenh nay
+       $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
-            $user = $this->Users->newEntity();
-            $user = $this->Users->patchEntity($user, $this->request->getData('User')); //do ben view create('User'); co khai bao 1 mang nen ben nay phai get mang do 'user', cung model khong can khai bao cung dc
+            $user = $this->Users->patchEntity($user, $this->request->getData()); //do ben view create('User'); co khai bao 1 mang nen ben nay phai get mang do 'user', cung model khong can khai bao cung dc
             if ($this->Users->save($user)) {
                 $this->Flash->success('User successfully saved.');
                 $this->redirect(array('action' => 'usersList'));
             }
         }
+        $this->set('user', $user);
     }
 
     public function userEdit2()

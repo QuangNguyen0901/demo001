@@ -49,6 +49,12 @@
             echo $this->Form->end();
             //            pr($user);
             ?>
+            <?php echo $this->Html->link(
+                'Register',
+                ['controller' => 'Users', 'action' => 'userRegister'],
+                ['class' => 'btn-info btn-sm']
+            );
+            ?>
         </div>
     </div>
 </div>

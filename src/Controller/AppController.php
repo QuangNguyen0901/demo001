@@ -73,6 +73,8 @@ class AppController extends Controller
                 'home'
             ]
         ]);
+
+        $this->Auth->allow(['userRegister']);
         //end login function
 
 
