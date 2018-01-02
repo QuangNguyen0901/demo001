@@ -31,14 +31,28 @@ class UsersTable extends Table
         return $users;
     }
 
-    public function read_detail_user($user_id)
+    public function search_user($user_name,$user_sex)
+    {
+        $users = $this->find('all', [
+            'conditions' => [
+                'username like' => '%'.$user_name.'%',
+                'sex'=> $user_sex
+                ]
+        ]);
+        return $users;
+    }
+
+
+    public
+    function read_detail_user($user_id)
     {
 //        $user = $this->find()->where(array('id'=>$id))->first();
         $user = $this->find()->where(['user_id' => $user_id])->first();
         return $user;
     }
 
-    public function validationDefault(Validator $validator)
+    public
+    function validationDefault(Validator $validator)
     {
         $validator
             ->requirePresence('username', 'create')

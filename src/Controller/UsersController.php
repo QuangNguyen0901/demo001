@@ -34,7 +34,12 @@ class UsersController extends AppController
     public function usersList()
     {
         $userTable = TableRegistry::get('Users'); //tao 1 đối tượng của model Users
-        $users = $userTable->read_all_users();
+        if ($this->request->is('post')){
+//            pr($_POST['username']);
+            $users = $userTable->search_user($_POST['username'],$_POST['sex']);
+        }else{
+            $users = $userTable->read_all_users();
+        }
         $this->set('users', $users);// set giá trị $users cho biến POST users
     }
 

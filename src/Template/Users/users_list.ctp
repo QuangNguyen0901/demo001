@@ -45,6 +45,26 @@
                 </div>
                 <!-- /.panel-heading -->
                 <div>
+                    <?php
+                    echo $this->Form->create();
+                    ?>
+                    <div class="form-group">
+                        <label>Username</label>
+                        <?php echo $this->Form->input('username',['required'=> false,'label'=>false,'class'=>'form-control','placeholder'=>'Username']); ?>
+                    </div>
+                    <div class="form-group">
+                        <label>Sex</label>
+                        <?php echo $this->Form->input('sex',['required'=> false,'label'=>false,'class'=>'form-control','placeholder'=>'Sex']); ?>
+                    </div>
+                    <?php echo $this->Form->submit('Search',
+                        array('after' => $this->Html->link('Cancel', array('action' => 'usersList')))
+                    );
+                    echo $this->Form->end();
+                    ?>
+                    <?php echo pr($_POST); ?>
+                </div>
+
+                <div>
                     <?php echo $this->Html->link(
                         'Add',
                         ['controller' => 'Users', 'action' => 'userAdd'],
