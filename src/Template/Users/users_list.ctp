@@ -44,7 +44,7 @@
                     List users
                 </div>
                 <!-- /.panel-heading -->
-                <div>
+                <div style="border:#c7c7c7 solid 0.2px; padding: 20px;margin: 5px">
                     <?php
                     echo $this->Form->create();
                     ?>
@@ -54,14 +54,21 @@
                     </div>
                     <div class="form-group">
                         <label>Sex</label>
-                        <?php echo $this->Form->input('sex',['required'=> false,'label'=>false,'class'=>'form-control','placeholder'=>'Sex']); ?>
+                        <label class="radio-inline">
+                            <label class="radio-inline">
+                                <input type="radio" name="sex" id="sex0" value=0>Male
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="sex" id="sex1" value=1>Female
+                            </label>
+                        </label>
                     </div>
                     <?php echo $this->Form->submit('Search',
                         array('after' => $this->Html->link('Cancel', array('action' => 'usersList')))
                     );
                     echo $this->Form->end();
                     ?>
-                    <?php echo pr($_POST); ?>
+<!--                    --><?php //echo pr($_POST); ?>
                 </div>
 
                 <div>

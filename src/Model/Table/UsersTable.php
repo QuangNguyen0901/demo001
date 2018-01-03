@@ -31,17 +31,18 @@ class UsersTable extends Table
         return $users;
     }
 
-    public function search_user($user_name,$user_sex)
+    public function search_user($conditions)
     {
         $users = $this->find('all', [
-            'conditions' => [
-                'username like' => '%'.$user_name.'%',
-                'sex'=> $user_sex
-                ]
+            'conditions' => $conditions
+//                [
+//                'username like' => '%'.$user_name.'%',
+//                'sex'=> $user_sex
+//                ]
         ]);
+//        dd($users->sql());
         return $users;
     }
-
 
     public
     function read_detail_user($user_id)

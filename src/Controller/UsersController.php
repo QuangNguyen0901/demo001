@@ -36,7 +36,15 @@ class UsersController extends AppController
         $userTable = TableRegistry::get('Users'); //tao 1 đối tượng của model Users
         if ($this->request->is('post')){
 //            pr($_POST['username']);
-            $users = $userTable->search_user($_POST['username'],$_POST['sex']);
+            $conditions =array();
+            if ($_POST['username']!= null){                                    //khac nhau giua !empty va != null
+                $conditions['username like'] = '%'.$_POST['username'].'%';
+            }
+            if ($_POST['sex'] != null){
+                $conditions['sex'] = $_POST['sex'];
+            }
+
+            $users = $userTable->search_user($conditions);
         }else{
             $users = $userTable->read_all_users();
         }
