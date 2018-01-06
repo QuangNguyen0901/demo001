@@ -44,7 +44,9 @@
                     List users
                 </div>
                 <!-- /.panel-heading -->
-                <div style="border:#c7c7c7 solid 0.2px; padding: 20px;margin: 5px">
+
+                <!-- start frame search -->
+                <div style="border-radius:5px; border:#c7c7c7 solid 1px; padding: 10px 20px;margin: 5px">
                     <?php
                     echo $this->Form->create();
                     ?>
@@ -63,10 +65,16 @@
                             </label>
                         </label>
                     </div>
-                    <?php echo $this->Form->submit('Search',
-                        array('after' => $this->Html->link('Cancel', array('action' => 'usersList')))
-                    );
-                    echo $this->Form->end();
+                    <div>
+                    <?php
+//                    echo $this->Form->submit('Search',
+//                        array('after' => $this->Html->link('Cancel', array('action' => 'usersList')),'class' => 'btn-info btn-sm')
+//                    );
+                    echo $this->Form->submit('Search',['action'=> 'userList','class'=> 'btn btn-success btn-sm','style' => 'float:right']);
+                    ?>
+                    </div>
+                    <div style="clear: both"></div>
+                    <?php echo $this->Form->end();
                     ?>
 <!--                    --><?php //echo pr($_POST); ?>
                 </div>
