@@ -40,41 +40,37 @@
                         <div class="col-lg-12">
                             <?php
                             echo $this->Form->create('User'); ?>
-<!--                            <form role="form">-->
+                            <!--                            <form role="form">-->
+                            <div class="form-group">
+                                <?php
+                                //echo $this->Form->create('User'); ?>
                                 <div class="form-group">
+                                    <?php echo $this->Form->input('User.username',
+                                        ['class' => 'form-control', 'label' => 'User Name', 'value' => $user->username]);
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label style="float:left;margin-right: 15px">Sex</label>
                                     <?php
-                                    //echo $this->Form->create('User'); ?>
-                                    <div class="form-group">
-                                        <?php echo $this->Form->input('User.username',
-                                            ['class' => 'form-control', 'label' => 'User Name', 'value' => $user->username]);
-                                        ?>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Sex</label>
-                                    <label class="radio-inline">
-                                        <?php
-                                        echo $this->Form->input(
-                                            'User.sex',
-                                            [
-                                                'options' => array('0' => 'Male', '1' => 'Female'),
-                                                'value' => $user->sex,
-                                                'type' => 'radio',
-                                                'class' => 'radio-inline',
-
-                                                'label' => false
-                                            ]
-                                        )
-                                        ?>
-                                    </label>
-
-                                </div>
-                                <?php echo $this->Form->submit('Submit',
-                                    array('class'=> 'btn btn-primary btn-sm ','after' => $this->Html->link('Cancel', array('action' => 'userEdit', $user->user_id, 2)))
-                                );?>
-                                <?php echo $this->Form->end();
-                                ?>
-<!--                            </form>-->
+                                    echo $this->Form->input(
+                                        'sex',
+                                        [
+                                            'options' => ['0' => 'Male', '1' => 'Female'],
+                                            'value' => $user->sex,
+                                            'type' => 'radio',
+                                            'class' => 'radio-inline',
+                                            'label' => false
+                                        ]
+                                    )
+                                    ?>
+                            </div>
+                            <?php echo $this->Form->submit('Submit',
+                                array('class' => 'btn btn-primary btn-sm ', 'after' => $this->Html->link('Cancel', array('action' => 'userEdit', $user->user_id, 2)))
+                            ); ?>
+                            <?php echo $this->Form->end();
+                            ?>
+                            <!--                            </form>-->
                         </div>
                     </div>
                 </div>
