@@ -93,15 +93,6 @@ class UsersController extends AppController
         } else {
             $this->data = $this->Users->findById($user_id);
         }
-
-
-        //        $user->username = "ahehehehe";
-//        $userTable->save($user);
-//        if($page ==1) {
-//            return $this->redirect('users/users-list');
-//        }elseif($page ==2){
-//            return $this->redirect(['controller' => 'users', 'action' => 'userDetail', $user->user_id]);
-//        }
     }
 
     public function userAdd()

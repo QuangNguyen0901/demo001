@@ -1,0 +1,14 @@
+.input_custom label {
+    float: left;
+    width: 100px;
+    margin: 7px 0px;
+}
+
+.input_custom input {
+    width: 200px;
+}
+
+.radio_custom label {
+    float: left;
+    width: 100px;
+}
