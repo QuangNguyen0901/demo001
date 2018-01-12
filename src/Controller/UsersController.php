@@ -34,18 +34,18 @@ class UsersController extends AppController
     public function usersList()
     {
         $userTable = TableRegistry::get('Users'); //tao 1 đối tượng của model Users
-        if ($this->request->is('post')){
+        if ($this->request->is('post')) {
 //            pr($_POST['username']);
-            $conditions =array();
-            if ($_POST['username']!= null){                                    //khac nhau giua !empty va != null
-                $conditions['username like'] = '%'.$_POST['username'].'%';
+            $conditions = array();
+            if ($_POST['username'] != null) {                                    //khac nhau giua !empty va != null
+                $conditions['username like'] = '%' . $_POST['username'] . '%';
             }
-            if ($_POST['sex'] != null){
+            if ($_POST['sex'] != null) {
                 $conditions['sex'] = $_POST['sex'];
             }
 
             $users = $userTable->search_user($conditions);
-        }else{
+        } else {
             $users = $userTable->read_all_users();
         }
         $this->set('users', $users);// set giá trị $users cho biến POST users
@@ -74,12 +74,16 @@ class UsersController extends AppController
 
     public function userEdit($user_id, $page)
     {
+
         $userTable = TableRegistry::get('Users');
         $user = $userTable->get($user_id);
         $this->set('user', $user); //gán đối tượng $user cho UsersController
         if ($this->request->is('post')) {
+//            pr($_POST);
+//            die;
             $this->request->data['User']['user_id'] = $user_id; //gán user_id post lên == user id
             $user = $userTable->patchEntity($user, $this->request->getData('User'));
+//            pr($_POST);
 //            pr($user);die;
             if ($userTable->save($user)) {
                 $this->Flash->success('User successfully saved.');
@@ -97,7 +101,7 @@ class UsersController extends AppController
 
     public function userAdd()
     {
-       $user = $this->Users->newEntity();
+        $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData()); //do ben view create('User'); co khai bao 1 mang nen ben nay phai get mang do 'user', cung model khong can khai bao cung dc
             if ($this->Users->save($user)) {

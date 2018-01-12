@@ -61,7 +61,7 @@
                                 </div>
                                 <?php
                                 echo $this->Form->input(
-                                    'sex',
+                                    'User.sex',
                                     [
                                         'options' => ['0' => 'Male', '1' => 'Female'],
                                         'value' => $user->sex,
@@ -80,6 +80,23 @@
                             <div class="form-group input_custom">
                                 <?php echo $this->Form->input('User.phone',
                                     ['class' => 'form-control', 'label' => 'Phone', 'value' => $user->phone]);
+                                ?>
+                            </div>
+                            <div class="form-group ">
+                                <div class="radio_custom">
+                                    <label >Role</label>
+                                </div>
+                                <?php
+                                echo $this->Form->input(
+                                    'User.role',
+                                    [
+                                        'options' => ['0' => 'Admin', '1' => 'User'],
+                                        'value' => $user->role,
+                                        'type' => 'radio',
+                                        'templates' => ['nestingLabel' => '{{hidden}}<label{{attrs}} class="radio-inline">{{input}}{{text}}</label>'],
+                                        'label' => false
+                                    ]
+                                )
                                 ?>
                             </div>
                             <?php echo $this->Form->submit('Submit',
